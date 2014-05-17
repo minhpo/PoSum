@@ -13,15 +13,36 @@
 		4D2FDCC11927741D00117DB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDCBF1927741D00117DB8 /* InfoPlist.strings */; };
 		4D2FDCC31927741D00117DB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCC21927741D00117DB8 /* main.m */; };
 		4D2FDCC71927741D00117DB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCC61927741D00117DB8 /* AppDelegate.m */; };
-		4D2FDCCA1927741D00117DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDCC81927741D00117DB8 /* Main.storyboard */; };
-		4D2FDCCD1927741D00117DB8 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCCC1927741D00117DB8 /* FirstViewController.m */; };
-		4D2FDCD01927741D00117DB8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCCF1927741D00117DB8 /* SecondViewController.m */; };
 		4D2FDCD21927741D00117DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDCD11927741D00117DB8 /* Images.xcassets */; };
 		4D2FDCD91927741D00117DB8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FDCD81927741D00117DB8 /* XCTest.framework */; };
 		4D2FDCDA1927741D00117DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FDCB61927741D00117DB8 /* Foundation.framework */; };
 		4D2FDCDB1927741D00117DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FDCBA1927741D00117DB8 /* UIKit.framework */; };
 		4D2FDCE31927741D00117DB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDCE11927741D00117DB8 /* InfoPlist.strings */; };
-		4D2FDCE51927741D00117DB8 /* PoSumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCE41927741D00117DB8 /* PoSumTests.m */; };
+		4D2FDCF1192774BD00117DB8 /* DataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCEF192774BD00117DB8 /* DataModels.xcdatamodeld */; };
+		4D2FDCF3192774CF00117DB8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2FDCF2192774CF00117DB8 /* CoreData.framework */; };
+		4D2FDCFA1927753300117DB8 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCF51927753300117DB8 /* Exercise.m */; };
+		4D2FDCFB1927753300117DB8 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCF71927753300117DB8 /* Food.m */; };
+		4D2FDCFC1927753300117DB8 /* FoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCF91927753300117DB8 /* FoodCategory.m */; };
+		4D2FDD001927774800117DB8 /* DatabaseContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDCFF1927774800117DB8 /* DatabaseContext.m */; };
+		4D2FDD041927791800117DB8 /* ImportOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD031927791800117DB8 /* ImportOperation.m */; };
+		4D2FDD0A19277D2100117DB8 /* categoriesStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD0719277D2100117DB8 /* categoriesStatic.json */; };
+		4D2FDD0B19277D2100117DB8 /* exercisesStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD0819277D2100117DB8 /* exercisesStatic.json */; };
+		4D2FDD0C19277D2100117DB8 /* foodStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD0919277D2100117DB8 /* foodStatic.json */; };
+		4D2FDD151927A01700117DB8 /* DatabaseFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD141927A01700117DB8 /* DatabaseFiller.m */; };
+		4D2FDD161927A01700117DB8 /* DatabaseFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD141927A01700117DB8 /* DatabaseFiller.m */; };
+		4D2FDD1C1927A39F00117DB8 /* testCategoriesStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD191927A39F00117DB8 /* testCategoriesStatic.json */; };
+		4D2FDD1D1927A39F00117DB8 /* testExercisesStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD1A1927A39F00117DB8 /* testExercisesStatic.json */; };
+		4D2FDD1E1927A39F00117DB8 /* testFoodStatic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD1B1927A39F00117DB8 /* testFoodStatic.json */; };
+		4D2FDD231927B1EC00117DB8 /* ImportProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD211927B1EC00117DB8 /* ImportProgressViewController.m */; };
+		4D2FDD241927B1EC00117DB8 /* ImportProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD221927B1EC00117DB8 /* ImportProgressView.xib */; };
+		4D2FDD291927C31E00117DB8 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD281927C31E00117DB8 /* Window.xib */; };
+		4D2FDD2D1927C55900117DB8 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD2B1927C55900117DB8 /* CategoryViewController.m */; };
+		4D2FDD2E1927C55900117DB8 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD2C1927C55900117DB8 /* CategoryView.xib */; };
+		4D2FDD321927C64E00117DB8 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD301927C64E00117DB8 /* FoodViewController.m */; };
+		4D2FDD331927C64E00117DB8 /* FoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD311927C64E00117DB8 /* FoodView.xib */; };
+		4D2FDD371927C66300117DB8 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2FDD351927C66300117DB8 /* ExerciseViewController.m */; };
+		4D2FDD381927C66300117DB8 /* ExerciseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDD361927C66300117DB8 /* ExerciseView.xib */; };
+		C1F21B6846984CA1B4F7BD40 /* libPods-PoSumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4A787077AF406C9CDC20D3 /* Pods-PoSumTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoSumTests.xcconfig"; path = "Pods/Pods-PoSumTests.xcconfig"; sourceTree = "<group>"; };
 		4D2FDCB31927741D00117DB8 /* PoSum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoSum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2FDCB61927741D00117DB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D2FDCB81927741D00117DB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,17 +67,45 @@
 		4D2FDCC41927741D00117DB8 /* PoSum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PoSum-Prefix.pch"; sourceTree = "<group>"; };
 		4D2FDCC51927741D00117DB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D2FDCC61927741D00117DB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D2FDCC91927741D00117DB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4D2FDCCB1927741D00117DB8 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		4D2FDCCC1927741D00117DB8 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		4D2FDCCE1927741D00117DB8 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		4D2FDCCF1927741D00117DB8 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		4D2FDCD11927741D00117DB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D2FDCD71927741D00117DB8 /* PoSumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoSumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2FDCD81927741D00117DB8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4D2FDCE01927741D00117DB8 /* PoSumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PoSumTests-Info.plist"; sourceTree = "<group>"; };
 		4D2FDCE21927741D00117DB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4D2FDCE41927741D00117DB8 /* PoSumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoSumTests.m; sourceTree = "<group>"; };
+		4D2FDCF0192774BD00117DB8 /* DataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModels.xcdatamodel; sourceTree = "<group>"; };
+		4D2FDCF2192774CF00117DB8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4D2FDCF41927753300117DB8 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = Data/Exercise.h; sourceTree = "<group>"; };
+		4D2FDCF51927753300117DB8 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Data/Exercise.m; sourceTree = "<group>"; };
+		4D2FDCF61927753300117DB8 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Food.h; path = Data/Food.h; sourceTree = "<group>"; };
+		4D2FDCF71927753300117DB8 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Food.m; path = Data/Food.m; sourceTree = "<group>"; };
+		4D2FDCF81927753300117DB8 /* FoodCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCategory.h; path = Data/FoodCategory.h; sourceTree = "<group>"; };
+		4D2FDCF91927753300117DB8 /* FoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCategory.m; path = Data/FoodCategory.m; sourceTree = "<group>"; };
+		4D2FDCFE1927774800117DB8 /* DatabaseContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseContext.h; path = Dao/DatabaseContext.h; sourceTree = "<group>"; };
+		4D2FDCFF1927774800117DB8 /* DatabaseContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseContext.m; path = Dao/DatabaseContext.m; sourceTree = "<group>"; };
+		4D2FDD021927791800117DB8 /* ImportOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportOperation.h; path = Import/ImportOperation.h; sourceTree = "<group>"; };
+		4D2FDD031927791800117DB8 /* ImportOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportOperation.m; path = Import/ImportOperation.m; sourceTree = "<group>"; };
+		4D2FDD0719277D2100117DB8 /* categoriesStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = categoriesStatic.json; path = Resources/Files/categoriesStatic.json; sourceTree = "<group>"; };
+		4D2FDD0819277D2100117DB8 /* exercisesStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = exercisesStatic.json; path = Resources/Files/exercisesStatic.json; sourceTree = "<group>"; };
+		4D2FDD0919277D2100117DB8 /* foodStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = foodStatic.json; path = Resources/Files/foodStatic.json; sourceTree = "<group>"; };
+		4D2FDD131927A01700117DB8 /* DatabaseFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseFiller.h; path = Import/DatabaseFiller.h; sourceTree = "<group>"; };
+		4D2FDD141927A01700117DB8 /* DatabaseFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseFiller.m; path = Import/DatabaseFiller.m; sourceTree = "<group>"; };
+		4D2FDD191927A39F00117DB8 /* testCategoriesStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testCategoriesStatic.json; path = Resources/Files/testCategoriesStatic.json; sourceTree = "<group>"; };
+		4D2FDD1A1927A39F00117DB8 /* testExercisesStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testExercisesStatic.json; path = Resources/Files/testExercisesStatic.json; sourceTree = "<group>"; };
+		4D2FDD1B1927A39F00117DB8 /* testFoodStatic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testFoodStatic.json; path = Resources/Files/testFoodStatic.json; sourceTree = "<group>"; };
+		4D2FDD201927B1EC00117DB8 /* ImportProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportProgressViewController.h; path = Import/ImportProgressViewController.h; sourceTree = "<group>"; };
+		4D2FDD211927B1EC00117DB8 /* ImportProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportProgressViewController.m; path = Import/ImportProgressViewController.m; sourceTree = "<group>"; };
+		4D2FDD221927B1EC00117DB8 /* ImportProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImportProgressView.xib; path = Import/ImportProgressView.xib; sourceTree = "<group>"; };
+		4D2FDD281927C31E00117DB8 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Window.xib; path = UI/Window.xib; sourceTree = "<group>"; };
+		4D2FDD2A1927C55900117DB8 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryViewController.h; path = UI/CategoryViewController.h; sourceTree = "<group>"; };
+		4D2FDD2B1927C55900117DB8 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryViewController.m; path = UI/CategoryViewController.m; sourceTree = "<group>"; };
+		4D2FDD2C1927C55900117DB8 /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryView.xib; path = UI/CategoryView.xib; sourceTree = "<group>"; };
+		4D2FDD2F1927C64E00117DB8 /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodViewController.h; path = UI/FoodViewController.h; sourceTree = "<group>"; };
+		4D2FDD301927C64E00117DB8 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodViewController.m; path = UI/FoodViewController.m; sourceTree = "<group>"; };
+		4D2FDD311927C64E00117DB8 /* FoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodView.xib; path = UI/FoodView.xib; sourceTree = "<group>"; };
+		4D2FDD341927C66300117DB8 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseViewController.h; path = UI/ExerciseViewController.h; sourceTree = "<group>"; };
+		4D2FDD351927C66300117DB8 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseViewController.m; path = UI/ExerciseViewController.m; sourceTree = "<group>"; };
+		4D2FDD361927C66300117DB8 /* ExerciseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExerciseView.xib; path = UI/ExerciseView.xib; sourceTree = "<group>"; };
+		985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoSumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2FDCF3192774CF00117DB8 /* CoreData.framework in Frameworks */,
 				4D2FDCB91927741D00117DB8 /* CoreGraphics.framework in Frameworks */,
 				4D2FDCBB1927741D00117DB8 /* UIKit.framework in Frameworks */,
 				4D2FDCB71927741D00117DB8 /* Foundation.framework in Frameworks */,
@@ -76,6 +127,7 @@
 				4D2FDCD91927741D00117DB8 /* XCTest.framework in Frameworks */,
 				4D2FDCDB1927741D00117DB8 /* UIKit.framework in Frameworks */,
 				4D2FDCDA1927741D00117DB8 /* Foundation.framework in Frameworks */,
+				C1F21B6846984CA1B4F7BD40 /* libPods-PoSumTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +141,7 @@
 				4D2FDCDE1927741D00117DB8 /* PoSumTests */,
 				4D2FDCB51927741D00117DB8 /* Frameworks */,
 				4D2FDCB41927741D00117DB8 /* Products */,
+				0C4A787077AF406C9CDC20D3 /* Pods-PoSumTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +157,12 @@
 		4D2FDCB51927741D00117DB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D2FDCF2192774CF00117DB8 /* CoreData.framework */,
 				4D2FDCB61927741D00117DB8 /* Foundation.framework */,
 				4D2FDCB81927741D00117DB8 /* CoreGraphics.framework */,
 				4D2FDCBA1927741D00117DB8 /* UIKit.framework */,
 				4D2FDCD81927741D00117DB8 /* XCTest.framework */,
+				985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,13 +170,13 @@
 		4D2FDCBC1927741D00117DB8 /* PoSum */ = {
 			isa = PBXGroup;
 			children = (
+				4D2FDD271927C30000117DB8 /* UI */,
+				4D2FDD0519277CD000117DB8 /* Resources */,
+				4D2FDD011927790100117DB8 /* Import */,
+				4D2FDCFD1927757600117DB8 /* Dao */,
+				4D2FDCEE1927744A00117DB8 /* Data */,
 				4D2FDCC51927741D00117DB8 /* AppDelegate.h */,
 				4D2FDCC61927741D00117DB8 /* AppDelegate.m */,
-				4D2FDCC81927741D00117DB8 /* Main.storyboard */,
-				4D2FDCCB1927741D00117DB8 /* FirstViewController.h */,
-				4D2FDCCC1927741D00117DB8 /* FirstViewController.m */,
-				4D2FDCCE1927741D00117DB8 /* SecondViewController.h */,
-				4D2FDCCF1927741D00117DB8 /* SecondViewController.m */,
 				4D2FDCD11927741D00117DB8 /* Images.xcassets */,
 				4D2FDCBD1927741D00117DB8 /* Supporting Files */,
 			);
@@ -142,7 +197,7 @@
 		4D2FDCDE1927741D00117DB8 /* PoSumTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D2FDCE41927741D00117DB8 /* PoSumTests.m */,
+				4D2FDD171927A30500117DB8 /* Resources */,
 				4D2FDCDF1927741D00117DB8 /* Supporting Files */,
 			);
 			path = PoSumTests;
@@ -155,6 +210,96 @@
 				4D2FDCE11927741D00117DB8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D2FDCEE1927744A00117DB8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDCF41927753300117DB8 /* Exercise.h */,
+				4D2FDCF51927753300117DB8 /* Exercise.m */,
+				4D2FDCF61927753300117DB8 /* Food.h */,
+				4D2FDCF71927753300117DB8 /* Food.m */,
+				4D2FDCF81927753300117DB8 /* FoodCategory.h */,
+				4D2FDCF91927753300117DB8 /* FoodCategory.m */,
+				4D2FDCEF192774BD00117DB8 /* DataModels.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		4D2FDCFD1927757600117DB8 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDCFE1927774800117DB8 /* DatabaseContext.h */,
+				4D2FDCFF1927774800117DB8 /* DatabaseContext.m */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
+		4D2FDD011927790100117DB8 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD021927791800117DB8 /* ImportOperation.h */,
+				4D2FDD031927791800117DB8 /* ImportOperation.m */,
+				4D2FDD131927A01700117DB8 /* DatabaseFiller.h */,
+				4D2FDD141927A01700117DB8 /* DatabaseFiller.m */,
+				4D2FDD201927B1EC00117DB8 /* ImportProgressViewController.h */,
+				4D2FDD211927B1EC00117DB8 /* ImportProgressViewController.m */,
+				4D2FDD221927B1EC00117DB8 /* ImportProgressView.xib */,
+			);
+			name = Import;
+			sourceTree = "<group>";
+		};
+		4D2FDD0519277CD000117DB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD0619277CD600117DB8 /* Files */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D2FDD0619277CD600117DB8 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD0719277D2100117DB8 /* categoriesStatic.json */,
+				4D2FDD0819277D2100117DB8 /* exercisesStatic.json */,
+				4D2FDD0919277D2100117DB8 /* foodStatic.json */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		4D2FDD171927A30500117DB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD181927A30B00117DB8 /* Files */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D2FDD181927A30B00117DB8 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD191927A39F00117DB8 /* testCategoriesStatic.json */,
+				4D2FDD1A1927A39F00117DB8 /* testExercisesStatic.json */,
+				4D2FDD1B1927A39F00117DB8 /* testFoodStatic.json */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		4D2FDD271927C30000117DB8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4D2FDD281927C31E00117DB8 /* Window.xib */,
+				4D2FDD2A1927C55900117DB8 /* CategoryViewController.h */,
+				4D2FDD2B1927C55900117DB8 /* CategoryViewController.m */,
+				4D2FDD2C1927C55900117DB8 /* CategoryView.xib */,
+				4D2FDD2F1927C64E00117DB8 /* FoodViewController.h */,
+				4D2FDD301927C64E00117DB8 /* FoodViewController.m */,
+				4D2FDD311927C64E00117DB8 /* FoodView.xib */,
+				4D2FDD341927C66300117DB8 /* ExerciseViewController.h */,
+				4D2FDD351927C66300117DB8 /* ExerciseViewController.m */,
+				4D2FDD361927C66300117DB8 /* ExerciseView.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +326,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D2FDCEB1927741D00117DB8 /* Build configuration list for PBXNativeTarget "PoSumTests" */;
 			buildPhases = (
+				BB25F37781774EC8820EC87E /* Check Pods Manifest.lock */,
 				4D2FDCD31927741D00117DB8 /* Sources */,
 				4D2FDCD41927741D00117DB8 /* Frameworks */,
 				4D2FDCD51927741D00117DB8 /* Resources */,
+				8D8BD81554194D8CBD31AFCD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,9 +380,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2FDD381927C66300117DB8 /* ExerciseView.xib in Resources */,
+				4D2FDD2E1927C55900117DB8 /* CategoryView.xib in Resources */,
+				4D2FDD291927C31E00117DB8 /* Window.xib in Resources */,
 				4D2FDCD21927741D00117DB8 /* Images.xcassets in Resources */,
 				4D2FDCC11927741D00117DB8 /* InfoPlist.strings in Resources */,
-				4D2FDCCA1927741D00117DB8 /* Main.storyboard in Resources */,
+				4D2FDD0B19277D2100117DB8 /* exercisesStatic.json in Resources */,
+				4D2FDD241927B1EC00117DB8 /* ImportProgressView.xib in Resources */,
+				4D2FDD331927C64E00117DB8 /* FoodView.xib in Resources */,
+				4D2FDD0A19277D2100117DB8 /* categoriesStatic.json in Resources */,
+				4D2FDD0C19277D2100117DB8 /* foodStatic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,20 +398,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2FDCE31927741D00117DB8 /* InfoPlist.strings in Resources */,
+				4D2FDD1C1927A39F00117DB8 /* testCategoriesStatic.json in Resources */,
+				4D2FDD1D1927A39F00117DB8 /* testExercisesStatic.json in Resources */,
+				4D2FDD1E1927A39F00117DB8 /* testFoodStatic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D8BD81554194D8CBD31AFCD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-PoSumTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB25F37781774EC8820EC87E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D2FDCAF1927741D00117DB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D2FDCD01927741D00117DB8 /* SecondViewController.m in Sources */,
+				4D2FDD371927C66300117DB8 /* ExerciseViewController.m in Sources */,
+				4D2FDD231927B1EC00117DB8 /* ImportProgressViewController.m in Sources */,
+				4D2FDD001927774800117DB8 /* DatabaseContext.m in Sources */,
+				4D2FDCFB1927753300117DB8 /* Food.m in Sources */,
+				4D2FDD151927A01700117DB8 /* DatabaseFiller.m in Sources */,
+				4D2FDCFA1927753300117DB8 /* Exercise.m in Sources */,
 				4D2FDCC71927741D00117DB8 /* AppDelegate.m in Sources */,
-				4D2FDCCD1927741D00117DB8 /* FirstViewController.m in Sources */,
+				4D2FDD321927C64E00117DB8 /* FoodViewController.m in Sources */,
+				4D2FDD041927791800117DB8 /* ImportOperation.m in Sources */,
+				4D2FDD2D1927C55900117DB8 /* CategoryViewController.m in Sources */,
 				4D2FDCC31927741D00117DB8 /* main.m in Sources */,
+				4D2FDCF1192774BD00117DB8 /* DataModels.xcdatamodeld in Sources */,
+				4D2FDCFC1927753300117DB8 /* FoodCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D2FDCE51927741D00117DB8 /* PoSumTests.m in Sources */,
+				4D2FDD161927A01700117DB8 /* DatabaseFiller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,14 +485,6 @@
 				4D2FDCC01927741D00117DB8 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4D2FDCC81927741D00117DB8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D2FDCC91927741D00117DB8 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		4D2FDCE11927741D00117DB8 /* InfoPlist.strings */ = {
@@ -405,6 +596,7 @@
 		};
 		4D2FDCEC1927741D00117DB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4A787077AF406C9CDC20D3 /* Pods-PoSumTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PoSum.app/PoSum";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -427,6 +619,7 @@
 		};
 		4D2FDCED1927741D00117DB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4A787077AF406C9CDC20D3 /* Pods-PoSumTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PoSum.app/PoSum";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -462,6 +655,7 @@
 				4D2FDCEA1927741D00117DB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D2FDCEB1927741D00117DB8 /* Build configuration list for PBXNativeTarget "PoSumTests" */ = {
 			isa = XCConfigurationList;
@@ -470,8 +664,23 @@
 				4D2FDCED1927741D00117DB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D2FDCEF192774BD00117DB8 /* DataModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D2FDCF0192774BD00117DB8 /* DataModels.xcdatamodel */,
+			);
+			currentVersion = 4D2FDCF0192774BD00117DB8 /* DataModels.xcdatamodel */;
+			name = DataModels.xcdatamodeld;
+			path = Data/DataModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4D2FDCAB1927741D00117DB8 /* Project object */;
 }
