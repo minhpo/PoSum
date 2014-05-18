@@ -24,13 +24,12 @@
     self = [super init];
     if (self) {
         [self setupManagedObjectContext];
-        [self setupFetchController];
     }
     
     return self;
 }
 
-- (void)setupFetchController {
+- (void)setSearchTerm:(NSString*)searchTerm {
     NSFetchRequest *fetchRequest = [NSFetchRequest new];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Exercise class])
@@ -38,6 +37,11 @@
     [fetchRequest setEntity:entity];
     
     NSString *sortKey = [self getSortKey];
+    if (searchTerm) {
+        NSPredicate *predicate = [NSPredicate  predicateWithFormat:@"%K contains[c] %@", sortKey, searchTerm];        
+        fetchRequest.predicate = predicate;
+    }
+    
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:sortKey
                                                          ascending:YES
                                                           selector:@selector(caseInsensitiveCompare:)];
@@ -46,7 +50,9 @@
                                                          ascending:YES
                                                           selector:@selector(caseInsensitiveCompare:)];
     
-    NSArray *sortDescriptors = [sortKey isEqualToString:@"title"] ? @[sort] : @[sort, defaultSort];
+    NSArray *sortDescriptors = [sortKey isEqualToString:@"title"]
+        ? @[sort]
+        : @[sort, defaultSort];
 
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -56,6 +62,9 @@
                                                                         managedObjectContext:self.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:NSStringFromClass([Exercise class])];
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
 }
 
 - (NSString*)getSortKey {

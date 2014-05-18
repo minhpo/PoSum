@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CategoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate>
 
 @end

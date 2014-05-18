@@ -45,7 +45,6 @@
 		4D8A7F5D1928958D00C352E9 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F5B1928958D00C352E9 /* ExerciseViewController.m */; };
 		4D8A7F611928959500C352E9 /* ImportProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A7F5E1928959500C352E9 /* ImportProgressView.xib */; };
 		4D8A7F621928959500C352E9 /* ImportProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F601928959500C352E9 /* ImportProgressViewController.m */; };
-		4D8A7F651928A44200C352E9 /* NSObject+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F641928A44200C352E9 /* NSObject+NSDictionary.m */; };
 		4D8A7F6E1928B03900C352E9 /* FoodCategory+LocalizedViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F6D1928B03900C352E9 /* FoodCategory+LocalizedViewModel.m */; };
 		4D8A7F74192928C200C352E9 /* Exercise+LocalizedViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F73192928C200C352E9 /* Exercise+LocalizedViewModel.m */; };
 		C1F21B6846984CA1B4F7BD40 /* libPods-PoSumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */; };
@@ -119,8 +118,6 @@
 		4D8A7F5E1928959500C352E9 /* ImportProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImportProgressView.xib; path = UI/Import/ImportProgressView.xib; sourceTree = "<group>"; };
 		4D8A7F5F1928959500C352E9 /* ImportProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportProgressViewController.h; path = UI/Import/ImportProgressViewController.h; sourceTree = "<group>"; };
 		4D8A7F601928959500C352E9 /* ImportProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportProgressViewController.m; path = UI/Import/ImportProgressViewController.m; sourceTree = "<group>"; };
-		4D8A7F631928A44200C352E9 /* NSObject+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSDictionary.h"; sourceTree = "<group>"; };
-		4D8A7F641928A44200C352E9 /* NSObject+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSDictionary.m"; sourceTree = "<group>"; };
 		4D8A7F6C1928B03900C352E9 /* FoodCategory+LocalizedViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FoodCategory+LocalizedViewModel.h"; path = "Data/FoodCategory+LocalizedViewModel.h"; sourceTree = "<group>"; };
 		4D8A7F6D1928B03900C352E9 /* FoodCategory+LocalizedViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FoodCategory+LocalizedViewModel.m"; path = "Data/FoodCategory+LocalizedViewModel.m"; sourceTree = "<group>"; };
 		4D8A7F72192928C200C352E9 /* Exercise+LocalizedViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Exercise+LocalizedViewModel.h"; path = "Data/Exercise+LocalizedViewModel.h"; sourceTree = "<group>"; };
@@ -190,8 +187,6 @@
 		4D2FDCBC1927741D00117DB8 /* PoSum */ = {
 			isa = PBXGroup;
 			children = (
-				4D8A7F631928A44200C352E9 /* NSObject+NSDictionary.h */,
-				4D8A7F641928A44200C352E9 /* NSObject+NSDictionary.m */,
 				4D2FDD271927C30000117DB8 /* UI */,
 				4D2FDD0519277CD000117DB8 /* Resources */,
 				4D2FDD011927790100117DB8 /* Import */,
@@ -237,17 +232,17 @@
 		4D2FDCEE1927744A00117DB8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4D2FDCEF192774BD00117DB8 /* DataModels.xcdatamodeld */,
 				4D8A7F72192928C200C352E9 /* Exercise+LocalizedViewModel.h */,
 				4D8A7F73192928C200C352E9 /* Exercise+LocalizedViewModel.m */,
 				4D2FDCF41927753300117DB8 /* Exercise.h */,
 				4D2FDCF51927753300117DB8 /* Exercise.m */,
 				4D2FDCF61927753300117DB8 /* Food.h */,
 				4D2FDCF71927753300117DB8 /* Food.m */,
-				4D2FDCF81927753300117DB8 /* FoodCategory.h */,
-				4D2FDCF91927753300117DB8 /* FoodCategory.m */,
-				4D2FDCEF192774BD00117DB8 /* DataModels.xcdatamodeld */,
 				4D8A7F6C1928B03900C352E9 /* FoodCategory+LocalizedViewModel.h */,
 				4D8A7F6D1928B03900C352E9 /* FoodCategory+LocalizedViewModel.m */,
+				4D2FDCF81927753300117DB8 /* FoodCategory.h */,
+				4D2FDCF91927753300117DB8 /* FoodCategory.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -261,12 +256,12 @@
 				4D2FDCFF1927774800117DB8 /* DatabaseContext.m */,
 				4D2FDD391928801300117DB8 /* DatabaseReader.h */,
 				4D2FDD3A1928801300117DB8 /* DatabaseReader.m */,
+				4D8A7F3E19288FC400C352E9 /* ExerciseDatabaseReader.h */,
+				4D8A7F3F19288FC400C352E9 /* ExerciseDatabaseReader.m */,
 				4D2FDD3C192881DA00117DB8 /* FoodCategoryDatabaseReader.h */,
 				4D2FDD3D192881DA00117DB8 /* FoodCategoryDatabaseReader.m */,
 				4D8A7F3B19288B7E00C352E9 /* FoodDatabaseReader.h */,
 				4D8A7F3C19288B7E00C352E9 /* FoodDatabaseReader.m */,
-				4D8A7F3E19288FC400C352E9 /* ExerciseDatabaseReader.h */,
-				4D8A7F3F19288FC400C352E9 /* ExerciseDatabaseReader.m */,
 			);
 			name = Dao;
 			sourceTree = "<group>";
@@ -525,7 +520,6 @@
 				4D2FDCC71927741D00117DB8 /* AppDelegate.m in Sources */,
 				4D8A7F531928957900C352E9 /* CategoryViewController.m in Sources */,
 				4D2FDD3B1928801300117DB8 /* DatabaseReader.m in Sources */,
-				4D8A7F651928A44200C352E9 /* NSObject+NSDictionary.m in Sources */,
 				4D8A7F581928958300C352E9 /* FoodViewController.m in Sources */,
 				4D8A7F461928949A00C352E9 /* DatabaseContentInitializer.m in Sources */,
 				4D2FDD041927791800117DB8 /* ImportOperation.m in Sources */,

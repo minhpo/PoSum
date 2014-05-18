@@ -27,13 +27,17 @@
     self = [super init];
     if (self) {
         [self setupManagedObjectContext];
-        [self setupFetchController];
     }
     
     return self;
 }
 
-- (void)setupFetchController {
+- (void)setupManagedObjectContext {
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
+}
+
+- (void)setSearchTerm:(NSString*)searchTerm {
     NSFetchRequest *fetchRequest = [NSFetchRequest new];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Food class])
@@ -41,24 +45,32 @@
     [fetchRequest setEntity:entity];
     
     NSString *locale = [[NSLocale currentLocale] localeIdentifier];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"language == %@", locale];
+    
+    NSPredicate *predicate = !searchTerm || [searchTerm isEqualToString:[NSString string]]
+        ? [NSPredicate predicateWithFormat:@"language == %@", locale]
+        : [NSPredicate predicateWithFormat:@"language == %@ AND title contains[c] %@", locale, searchTerm];
     fetchRequest.predicate = predicate;
     
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title"
+    NSString *sortKey = !searchTerm || [searchTerm isEqualToString:[NSString string]]
+        ? @"ocategoryid"
+        : @"title";
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:sortKey
                                                          ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     
     [fetchRequest setFetchBatchSize:20];
     
+    NSString *sectionNameKeyPath = !searchTerm || [searchTerm isEqualToString:[NSString string]]
+        ? @"ocategoryid"
+        : nil;
+    
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                         managedObjectContext:self.managedObjectContext
-                                                                          sectionNameKeyPath:@"ocategoryid"
-                                                                                   cacheName:NSStringFromClass([Food class])];
-}
-
-- (void)setupManagedObjectContext {
-    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
+                                                                          sectionNameKeyPath:sectionNameKeyPath
+                                                                                   cacheName:NSStringFromClass([FoodCategory class])];
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
 }
 
 - (NSString*)getSectionTitleAtSection:(NSInteger)section {

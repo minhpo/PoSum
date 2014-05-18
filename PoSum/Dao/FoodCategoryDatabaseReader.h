@@ -12,6 +12,4 @@
 
 @interface FoodCategoryDatabaseReader : DatabaseReader
 
-- (FoodCategory*)getFoodCategoryForId:(NSInteger)categoryId;
-
 @end

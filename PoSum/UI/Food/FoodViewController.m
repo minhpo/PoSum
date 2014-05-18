@@ -42,7 +42,7 @@
     if (!self.databaseReader)
         self.databaseReader = [FoodDatabaseReader new];
     
-    [self.databaseReader beginRead];
+    [self.databaseReader setSearchTerm:nil];
     [self.tableView reloadData];
 }
 
@@ -75,6 +75,18 @@
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self.databaseReader getSectionTitleAtSection:section];
+}
+
+#pragma mark - Search
+
+-(void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+    [self.databaseReader setSearchTerm:nil];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self.databaseReader setSearchTerm:searchString];
+    
+    return YES;
 }
 
 @end

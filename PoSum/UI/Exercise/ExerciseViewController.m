@@ -43,7 +43,7 @@
     if (!self.databaseReader)
         self.databaseReader = [ExerciseDatabaseReader new];
     
-    [self.databaseReader beginRead];
+    [self.databaseReader setSearchTerm:nil];
     [self.tableView reloadData];
 }
 
@@ -71,6 +71,18 @@
     Exercise *exercise = [self.databaseReader getObjectAtIndexPath:indexPath];
 
     cell.textLabel.text = exercise.localizedName;
+}
+
+#pragma mark - Search
+
+-(void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+    [self.databaseReader setSearchTerm:nil];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self.databaseReader setSearchTerm:searchString];
+    
+    return YES;
 }
 
 @end

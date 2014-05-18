@@ -34,9 +34,7 @@
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
-- (void)beginRead {
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
-}
+// Method should be overwritten by sub classes
+- (void)setSearchTerm:(NSString*)searchTerm {}
 
 @end

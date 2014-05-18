@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FoodViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate>
 
 @end
