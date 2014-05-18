@@ -1,5 +1,5 @@
 //
-//  DatabaseFiller.h
+//  DatabaseContentInitializer.h
 //  PoSum
 //
 //  Created by Po Sam on 17/05/14.
@@ -10,7 +10,7 @@
 
 @class DatabaseContext;
 
-@interface DatabaseFiller : NSObject
+@interface DatabaseContentInitializer : NSObject
 
 - (void)startImportingData;
 

@@ -1,20 +1,25 @@
 //
-//  ExerciseViewController.m
+//  FoodViewController.m
 //  PoSum
 //
 //  Created by Po Sam on 17/05/14.
 //  Copyright (c) 2014 Po Sam. All rights reserved.
 //
 
-#import "ExerciseViewController.h"
+#import "FoodViewController.h"
 
-@interface ExerciseViewController ()
+#import "FoodDatabaseReader.h"
+#import "Food.h"
+
+@interface FoodViewController ()
 
 @property IBOutlet UITableView *tableView;
 
+@property FoodDatabaseReader *databaseReader;
+
 @end
 
-@implementation ExerciseViewController
+@implementation FoodViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,17 +36,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!self.databaseReader)
+        self.databaseReader = [FoodDatabaseReader new];
+    
+    [self.databaseReader beginRead];
+    [self.tableView reloadData];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.databaseReader numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.databaseReader numberOfObjectsInSection:section];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -51,7 +61,14 @@
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    [self configureCell:cell atIndexPath:indexPath];
+    
     return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Food *food = [self.databaseReader getObjectAtIndexPath:indexPath];
+    cell.textLabel.text = food.title;
 }
 
 @end

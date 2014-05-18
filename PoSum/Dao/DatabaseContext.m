@@ -10,9 +10,7 @@
 
 @interface DatabaseContext ()
 
-@property (nonatomic,strong,readwrite) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic,strong) NSManagedObjectModel* managedObjectModel;
-@property (nonatomic,strong) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 
 @end
 
@@ -26,91 +24,6 @@
     });
     
     return sharedInstance;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self setupSaveNotification];
-    }
-    
-    return self;
-}
-
-- (void)setupSaveNotification
-{
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
-                                                      object:nil
-                                                       queue:nil
-                                                  usingBlock:^(NSNotification* note) {
-                                                      NSManagedObjectContext *moc = self.managedObjectContext;
-                                                      if (note.object != moc) {
-                                                          [moc performBlock:^(){
-                                                              [moc mergeChangesFromContextDidSaveNotification:note];
-                                                          }];
-                                                      }
-                                                  }];
-}
-
-- (NSArray*)fetchAllIdsForClass:(Class)targetClass {
-    NSManagedObjectContext* context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    context.persistentStoreCoordinator = self.persistentStoreCoordinator;
-    context.undoManager = nil;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(targetClass) inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    [request setResultType:NSDictionaryResultType];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"oid"]];
-    
-    // Execute the fetch.
-    NSError *error;
-    return [context executeFetchRequest:request error:&error];
-}
-
-- (void)importInstances:(NSArray*)instances forClass:(Class)targetClass withProgressCallback:(void (^)(float))progress {
-    static const int importBatchSize = 250;
-    
-    __block NSManagedObjectContext* context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    context.persistentStoreCoordinator = self.persistentStoreCoordinator;
-    context.undoManager = nil;
-    
-    __block NSInteger counter = 0;
-    __block NSInteger count = instances.count;
-    
-    [instances enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        id instance = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(targetClass) inManagedObjectContext:context];
-        [instance setValuesForKeysWithDictionary:obj];
-        
-        counter++;
-        if (progress
-            && counter % importBatchSize == 0)
-            progress(counter / (float) count);
-        
-        if (counter % importBatchSize == 0)
-            [context save:NULL];
-        
-    }];
-    
-    progress(1);
-    [context save:NULL];
-}
-
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    @synchronized(self) {
-        if (_managedObjectContext != nil) {
-            return _managedObjectContext;
-        }
-        
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        _managedObjectContext.persistentStoreCoordinator = [self persistentStoreCoordinator];
-        return _managedObjectContext;
-    }
 }
 
 // Returns the managed object model for the application.

@@ -8,12 +8,12 @@
 
 #import "ImportOperation.h"
 
-#import "DatabaseFiller.h"
+#import "DatabaseContentInitializer.h"
 #import "DatabaseContext.h"
 
 @interface ImportOperation ()
 
-@property DatabaseFiller *databaseFiller;
+@property DatabaseContentInitializer *databaseFiller;
 
 @end
 
@@ -22,7 +22,7 @@
 - (id)initWithFileName:(NSString*)name forClass:(Class)targetClass withProgressCallback:(void(^)(float))progressCallback {
     self = [super init];
     if(self) {
-        self.databaseFiller = [DatabaseFiller new];
+        self.databaseFiller = [DatabaseContentInitializer new];
         self.databaseFiller.fileName = name;
         self.databaseFiller.targetClass = targetClass;
         self.databaseFiller.progressCallback = progressCallback;

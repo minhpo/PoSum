@@ -1,21 +1,25 @@
 //
-//  CategoryViewController.m
+//  ExerciseViewController.m
 //  PoSum
 //
 //  Created by Po Sam on 17/05/14.
 //  Copyright (c) 2014 Po Sam. All rights reserved.
 //
 
-#import "CategoryViewController.h"
-#import "ImportProgressViewController.h"
+#import "ExerciseViewController.h"
 
-@interface CategoryViewController ()
+#import "ExerciseDatabaseReader.h"
+#import "Exercise.h"
+
+@interface ExerciseViewController ()
 
 @property IBOutlet UITableView *tableView;
 
+@property ExerciseDatabaseReader *databaseReader;
+
 @end
 
-@implementation CategoryViewController
+@implementation ExerciseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,28 +36,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"finishedImport"])
-        return;
+    if (!self.databaseReader)
+        self.databaseReader = [ExerciseDatabaseReader new];
     
-    ImportProgressViewController *importProgressViewController = [[ImportProgressViewController alloc] initWithNibName:@"ImportProgressView" bundle:nil];
-    [self presentViewController:importProgressViewController animated:YES completion:nil];
+    [self.databaseReader beginRead];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.databaseReader numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.databaseReader numberOfObjectsInSection:section];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,7 +61,14 @@
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    [self configureCell:cell atIndexPath:indexPath];
+    
     return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Exercise *exercise = [self.databaseReader getObjectAtIndexPath:indexPath];
+    cell.textLabel.text = exercise.title;
 }
 
 @end

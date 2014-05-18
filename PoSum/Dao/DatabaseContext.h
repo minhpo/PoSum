@@ -12,7 +12,6 @@
 
 + (DatabaseContext*)sharedInstance;
 
-- (NSArray*)fetchAllIdsForClass:(Class)targetClass;
-- (void)importInstances:(NSArray*)instances forClass:(Class)targetClass withProgressCallback:(void (^)(float))progress;
+@property (nonatomic,strong) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 
 @end
