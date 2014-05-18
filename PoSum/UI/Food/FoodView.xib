@@ -19,6 +19,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="49"/>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="49"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="NUA-Iu-QIy"/>
                         <outlet property="delegate" destination="-1" id="Sdb-1R-28h"/>

@@ -71,4 +71,10 @@
     cell.textLabel.text = food.title;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.databaseReader getSectionTitleAtSection:section];
+}
+
 @end

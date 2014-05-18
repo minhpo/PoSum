@@ -17,6 +17,8 @@
 
 @implementation DatabaseContentInitializer
 
+#pragma mark - Initialization
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -25,6 +27,13 @@
     
     return self;
 }
+
+- (void)setupManagedObjectContext {
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
+}
+
+#pragma mark - Import data
 
 - (void)startImportingData {
     NSArray *ids = [self getAllKnownIds];
@@ -105,11 +114,6 @@
     
     progress(1);
     [self.managedObjectContext save:NULL];
-}
-
-- (void)setupManagedObjectContext {
-    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
 }
 
 @end

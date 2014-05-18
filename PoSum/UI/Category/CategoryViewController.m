@@ -11,8 +11,7 @@
 
 #import "FoodCategoryDatabaseReader.h"
 #import "FoodCategory.h"
-
-#import "NSObject+NSDictionary.h"
+#import "FoodCategory+LocalizedViewModel.h"
 
 @interface CategoryViewController ()
 
@@ -68,7 +67,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     FoodCategory *foodCategory = [self.databaseReader getObjectAtIndexPath:indexPath];
-    cell.textLabel.text = foodCategory.category;
+    cell.textLabel.text = foodCategory.localizedName;
 }
 
 #pragma mark - UITableViewDelegate

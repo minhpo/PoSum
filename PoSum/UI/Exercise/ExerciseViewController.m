@@ -10,6 +10,7 @@
 
 #import "ExerciseDatabaseReader.h"
 #import "Exercise.h"
+#import "Exercise+LocalizedViewModel.h"
 
 @interface ExerciseViewController ()
 
@@ -68,7 +69,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Exercise *exercise = [self.databaseReader getObjectAtIndexPath:indexPath];
-    cell.textLabel.text = exercise.title;
+
+    cell.textLabel.text = exercise.localizedName;
 }
 
 @end

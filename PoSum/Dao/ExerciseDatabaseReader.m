@@ -37,9 +37,18 @@
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title"
-                                                         ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+    NSString *sortKey = [self getSortKey];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:sortKey
+                                                         ascending:YES
+                                                          selector:@selector(caseInsensitiveCompare:)];
+    
+    NSSortDescriptor *defaultSort = [[NSSortDescriptor alloc] initWithKey:@"title"
+                                                         ascending:YES
+                                                          selector:@selector(caseInsensitiveCompare:)];
+    
+    NSArray *sortDescriptors = [sortKey isEqualToString:@"title"] ? @[sort] : @[sort, defaultSort];
+
+    [fetchRequest setSortDescriptors:sortDescriptors];
     
     [fetchRequest setFetchBatchSize:20];
     
@@ -47,6 +56,17 @@
                                                                         managedObjectContext:self.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:NSStringFromClass([Exercise class])];
+}
+
+- (NSString*)getSortKey {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Exercise class]) inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *unassociatedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    
+    NSString *languageCode = [NSLocale preferredLanguages][0];
+    NSString *localizedProperty = [NSString stringWithFormat:@"name_%@", languageCode];
+    SEL localizedNameSelector = NSSelectorFromString(localizedProperty);
+    
+    return [unassociatedObject respondsToSelector:localizedNameSelector] ? localizedProperty : @"title";
 }
 
 - (void)setupManagedObjectContext {

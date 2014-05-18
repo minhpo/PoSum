@@ -8,6 +8,10 @@
 
 #import "DatabaseReader.h"
 
+@class FoodCategory;
+
 @interface FoodCategoryDatabaseReader : DatabaseReader
+
+- (FoodCategory*)getFoodCategoryForId:(NSInteger)categoryId;
 
 @end
