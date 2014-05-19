@@ -106,6 +106,8 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"finishedImport"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedImportNotification object:self];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

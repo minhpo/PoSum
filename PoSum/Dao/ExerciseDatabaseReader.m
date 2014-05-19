@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void)setSearchTerm:(NSString*)searchTerm {
+- (void)fetchResultForSearchTerm:(NSString*)searchTerm {
     NSFetchRequest *fetchRequest = [NSFetchRequest new];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Exercise class])

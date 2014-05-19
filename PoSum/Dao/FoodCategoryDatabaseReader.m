@@ -36,7 +36,7 @@
     self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
 }
 
-- (void)setSearchTerm:(NSString*)searchTerm {
+- (void)fetchResultForSearchTerm:(NSString*)searchTerm {
     NSFetchRequest *fetchRequest = [NSFetchRequest new];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([FoodCategory class])

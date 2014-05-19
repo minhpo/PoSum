@@ -35,6 +35,6 @@
 }
 
 // Method should be overwritten by sub classes
-- (void)setSearchTerm:(NSString*)searchTerm {}
+- (void)fetchResultForSearchTerm:(NSString*)searchTerm {}
 
 @end

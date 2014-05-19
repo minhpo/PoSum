@@ -22,29 +22,19 @@
 
 @implementation ExerciseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self)
+        self.databaseReader = [ExerciseDatabaseReader new];
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
-    if (!self.databaseReader)
-        self.databaseReader = [ExerciseDatabaseReader new];
-    
-    [self.databaseReader setSearchTerm:nil];
-    [self.tableView reloadData];
+    [self.databaseReader fetchResultForSearchTerm:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,8 +49,10 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell)
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
     [self configureCell:cell atIndexPath:indexPath];
     
@@ -76,11 +68,11 @@
 #pragma mark - Search
 
 -(void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
-    [self.databaseReader setSearchTerm:nil];
+    [self.databaseReader fetchResultForSearchTerm:nil];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self.databaseReader setSearchTerm:searchString];
+    [self.databaseReader fetchResultForSearchTerm:searchString];
     
     return YES;
 }

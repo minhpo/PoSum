@@ -15,8 +15,8 @@
     
     SEL localizedNameSelector = NSSelectorFromString([NSString stringWithFormat:@"name_%@", languageCode]);
     NSString *localizedText = [self respondsToSelector:localizedNameSelector]
-    ? [self performSelector:localizedNameSelector]
-    : self.title;
+        ? [self performSelector:localizedNameSelector]
+        : self.title;
     
     if (localizedText.length < 1)
         localizedText = self.title;

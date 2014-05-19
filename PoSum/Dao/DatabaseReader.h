@@ -14,6 +14,6 @@
 - (NSInteger)numberOfObjectsInSection:(NSInteger)section;
 - (NSString*)getSectionTitleAtSection:(NSInteger)section;
 - (id)getObjectAtIndexPath:(NSIndexPath*)indexPath;
-- (void)setSearchTerm:(NSString*)searchTerm;
+- (void)fetchResultForSearchTerm:(NSString*)searchTerm;
 
 @end
