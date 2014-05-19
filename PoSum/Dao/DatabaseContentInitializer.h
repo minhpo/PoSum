@@ -8,16 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class DatabaseContext;
+#import "Shared.h"
 
 @interface DatabaseContentInitializer : NSObject
 
-- (void)startImportingData;
-
-@property (assign) Class targetClass;
-@property (nonatomic, copy) NSString* fileName;
-@property (nonatomic, copy) void (^progressCallback) (float);
-
-@property DatabaseContext *database;
+- (void)startImportingDataWithProgressCallback:(ProgressCallback)progressCallback;
 
 @end

@@ -8,20 +8,15 @@
 
 #import "ImportProgressViewController.h"
 
-#import "ImportOperation.h"
+#import "DatabaseContentInitializer.h"
 
-#import "Food.h"
-#import "FoodCategory.h"
-#import "Exercise.h"
+#import "Shared.h"
 
 @interface ImportProgressViewController ()
 
-@property float importFoodProgress;
-@property float importFoodCategoryProgress;
-@property float importExerciseProgress;
-
 @property IBOutlet UIProgressView *progressIndicator;
-@property (nonatomic, strong) NSOperationQueue* operationQueue;
+
+@property DatabaseContentInitializer *databaseContentInitializer;
 
 @end
 
@@ -30,85 +25,40 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.operationQueue = [NSOperationQueue new];
-    }
+    if (self)
+        self.databaseContentInitializer = [DatabaseContentInitializer new];
+    
     return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self startListeningToNotifications];
+    
     [self startImport];
+}
+
+- (void)startListeningToNotifications {
+    [[NSNotificationCenter defaultCenter] addObserverForName:kFinishedImportNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *notification) {
+                                                      [self stopListeningToNotifications];
+                                                      [self dismissViewControllerAnimated:YES completion:nil];
+                                                  }];
+}
+
+- (void)stopListeningToNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)startImport {
     self.progressIndicator.progress = 0;
     
-    [self startImportingFoodData];
-    [self startImportingFoodCategoryData];
-    [self startImportingExerciseData];
-}
-
-- (void)startImportingFoodData {
-    NSString* fileName = [[NSBundle mainBundle] pathForResource:@"foodStatic" ofType:@"json"];
-    [self startImportForFileName:fileName
-                        forClass:[Food class]
-            withProgressCallback:^(float progress) {
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^() {
-                    self.importFoodProgress = progress;
-                    [self updateProgress];
-                }];
-            }];
-}
-
-- (void)startImportingFoodCategoryData {
-    NSString* fileName = [[NSBundle mainBundle] pathForResource:@"categoriesStatic" ofType:@"json"];
-    [self startImportForFileName:fileName
-                        forClass:[FoodCategory class]
-            withProgressCallback:^(float progress) {
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^() {
-                    self.importFoodCategoryProgress = progress;
-                    [self updateProgress];
-                }];
-            }];
-}
-
-- (void)startImportingExerciseData {
-    NSString* fileName = [[NSBundle mainBundle] pathForResource:@"exercisesStatic" ofType:@"json"];
-    [self startImportForFileName:fileName
-                        forClass:[Exercise class]
-            withProgressCallback:^(float progress) {
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^() {
-                    self.importExerciseProgress = progress;
-                    [self updateProgress];
-                }];
-            }];
-}
-
-- (void)startImportForFileName:(NSString*)fileName forClass:(Class)objectClass withProgressCallback:(void (^)(float))progressCallback {
-    ImportOperation* operation = [[ImportOperation alloc] initWithFileName:fileName
-                                                                  forClass:objectClass
-                                                      withProgressCallback:^(float progress) {
-                                                          if (progressCallback)
-                                                              progressCallback(progress);
-                                                      }];
-    [self.operationQueue addOperation:operation];
-}
-
-- (void)updateProgress {
-    float progress = (self.importFoodProgress + self.importFoodCategoryProgress + self.importExerciseProgress)/3;
-    self.progressIndicator.progress = progress;
-    
-    if (progress < 1)
-        return;
-    
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"finishedImport"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedImportNotification object:self];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.databaseContentInitializer startImportingDataWithProgressCallback:^(float progress) {
+        self.progressIndicator.progress = progress;
+    }];
 }
 
 @end

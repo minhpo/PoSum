@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *kFinishedImportNotification = @"kFinishedImportNotification";
-
 @interface ImportProgressViewController : UIViewController
 
 @end

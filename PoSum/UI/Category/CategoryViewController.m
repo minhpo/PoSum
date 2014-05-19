@@ -13,6 +13,8 @@
 #import "FoodCategory.h"
 #import "FoodCategory+LocalizedViewModel.h"
 
+#import "Shared.h"
+
 @interface CategoryViewController ()
 
 @property IBOutlet UITableView *tableView;
@@ -59,11 +61,11 @@
                                                       [self.databaseReader fetchResultForSearchTerm:nil];
                                                       [self.tableView reloadData];
                                                       
-                                                      [self stopListenintToNotifications];
+                                                      [self stopListeningToNotifications];
                                                   }];
 }
 
-- (void)stopListenintToNotifications {
+- (void)stopListeningToNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
