@@ -29,20 +29,16 @@
         self.targetClass = targetClass;
         self.progressCallback = progressCallback;
         
-        [self setupManagedObjectContext];
+        self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
     }
     
     return self;
 }
 
-- (void)setupManagedObjectContext {
-    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
-}
-
 - (void)main
 {
-    NSArray *ids = [self getAllKnownIds];
+    NSArray *ids = [self getIdsOfStoredObjects];
     
     NSError *error;
     NSArray *unfilteredArrayOfJsonObjects = [self loadJsonObjectsFromFile:self.fileName error:&error];
@@ -51,13 +47,25 @@
         return;
     }
     
-    NSArray *filteredArrayOfJsonObjects = [self getObjectsToBeImportedFromSource:unfilteredArrayOfJsonObjects filterBy:ids];
+    NSArray *filteredArrayOfJsonObjects = [self getObjectsToBeImportedFromSource:unfilteredArrayOfJsonObjects
+                                                                        filterByObjectsWithIds:ids];
     
     [self importObjects:filteredArrayOfJsonObjects];
 }
 
-- (NSArray*)getAllKnownIds {
-    return [self fetchAllIdsForClass:self.targetClass];
+- (NSArray*)getIdsOfStoredObjects {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self.targetClass)
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setResultType:NSDictionaryResultType];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"oid"]];
+    
+    // Execute the fetch.
+    NSError *error;
+    return [self.managedObjectContext executeFetchRequest:request error:&error];
 }
 
 - (NSArray*)loadJsonObjectsFromFile:(NSString*)fileName error:(NSError**)error {
@@ -69,56 +77,33 @@
     return arrayOfJsonObjects;
 }
 
-- (NSArray*)getObjectsToBeImportedFromSource:(NSArray*)source filterBy:(NSArray*)filters {
-    return [source filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT(oid in %@)", [filters valueForKeyPath:@"oid"]]];
+- (NSArray*)getObjectsToBeImportedFromSource:(NSArray*)source filterByObjectsWithIds:(NSArray*)ids {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT(oid in %@)", [ids valueForKeyPath:@"oid"]];
+    return [source filteredArrayUsingPredicate:predicate];
 }
 
 - (void)importObjects:(NSArray*)objects {
-    [self importInstances:objects
-                 forClass:self.targetClass
-     withProgressCallback:^(float progress) {
-         if (self.progressCallback)
-             self.progressCallback(progress);
-     }];
-}
-
-- (NSArray*)fetchAllIdsForClass:(Class)targetClass {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(targetClass) inManagedObjectContext:self.managedObjectContext];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    [request setResultType:NSDictionaryResultType];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"oid"]];
-    
-    // Execute the fetch.
-    NSError *error;
-    return [self.managedObjectContext executeFetchRequest:request error:&error];
-    
-}
-
-- (void)importInstances:(NSArray*)instances forClass:(Class)targetClass withProgressCallback:(void (^)(float))progress {
     static const int importBatchSize = 250;
     
     __block NSInteger counter = 0;
-    __block NSInteger count = instances.count;
+    __block NSInteger count = objects.count;
     
-    [instances enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        id instance = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(targetClass)
+    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        id instance = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.targetClass)
                                                     inManagedObjectContext:self.managedObjectContext];
         [instance setValuesForKeysWithDictionary:obj];
         
         counter++;
-        if (progress
+        if (self.progressCallback
             && counter % importBatchSize == 0)
-            progress(counter / (float) count);
+            self.progressCallback(counter / (float) count);
         
         if (counter % importBatchSize == 0)
             [self.managedObjectContext save:NULL];
         
     }];
     
-    progress(1);
+    self.progressCallback(1);
     [self.managedObjectContext save:NULL];
 }
 

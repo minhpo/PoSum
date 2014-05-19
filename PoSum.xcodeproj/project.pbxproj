@@ -188,15 +188,15 @@
 		4D2FDCBC1927741D00117DB8 /* PoSum */ = {
 			isa = PBXGroup;
 			children = (
-				4D8A7F7E1929CAD200C352E9 /* Misc */,
-				4D2FDD271927C30000117DB8 /* UI */,
-				4D2FDD0519277CD000117DB8 /* Resources */,
-				4D2FDCFD1927757600117DB8 /* Dao */,
-				4D2FDCEE1927744A00117DB8 /* Data */,
 				4D2FDCC51927741D00117DB8 /* AppDelegate.h */,
 				4D2FDCC61927741D00117DB8 /* AppDelegate.m */,
 				4D2FDCD11927741D00117DB8 /* Images.xcassets */,
+				4D2FDCFD1927757600117DB8 /* Dao */,
+				4D2FDCEE1927744A00117DB8 /* Data */,
+				4D8A7F7E1929CAD200C352E9 /* Misc */,
+				4D2FDD0519277CD000117DB8 /* Resources */,
 				4D2FDCBD1927741D00117DB8 /* Supporting Files */,
+				4D2FDD271927C30000117DB8 /* UI */,
 			);
 			path = PoSum;
 			sourceTree = "<group>";
@@ -251,12 +251,12 @@
 		4D2FDCFD1927757600117DB8 /* Dao */ = {
 			isa = PBXGroup;
 			children = (
-				4D8A7F7B1929C8D200C352E9 /* DatabaseImportOperation.h */,
-				4D8A7F7C1929C8D200C352E9 /* DatabaseImportOperation.m */,
 				4D8A7F441928949A00C352E9 /* DatabaseContentInitializer.h */,
 				4D8A7F451928949A00C352E9 /* DatabaseContentInitializer.m */,
 				4D2FDCFE1927774800117DB8 /* DatabaseContext.h */,
 				4D2FDCFF1927774800117DB8 /* DatabaseContext.m */,
+				4D8A7F7B1929C8D200C352E9 /* DatabaseImportOperation.h */,
+				4D8A7F7C1929C8D200C352E9 /* DatabaseImportOperation.m */,
 				4D2FDD391928801300117DB8 /* DatabaseReader.h */,
 				4D2FDD3A1928801300117DB8 /* DatabaseReader.m */,
 				4D8A7F3E19288FC400C352E9 /* ExerciseDatabaseReader.h */,
@@ -308,11 +308,11 @@
 		4D2FDD271927C30000117DB8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4D8A7F4C192894F600C352E9 /* Import */,
+				4D8A7F47192894B100C352E9 /* Application */,
+				4D8A7F48192894B700C352E9 /* Categories */,
 				4D8A7F4A192894C300C352E9 /* Exercise */,
 				4D8A7F49192894C000C352E9 /* Food */,
-				4D8A7F48192894B700C352E9 /* Categories */,
-				4D8A7F47192894B100C352E9 /* Application */,
+				4D8A7F4C192894F600C352E9 /* Import */,
 			);
 			name = UI;
 			sourceTree = "<group>";
