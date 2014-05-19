@@ -49,7 +49,7 @@
     
     _center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     
-    _drawColor = [UIColor colorWithRed:255.0/255.0 green:191.0/255.0 blue:17.0/255.0 alpha:1.0];
+    _drawColor = LifesumYellow;
 }
 
 - (void)setLineWidth:(CGFloat)lineWidth {

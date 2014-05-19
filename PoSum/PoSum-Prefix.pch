@@ -17,4 +17,6 @@
 
 #import "Shared.h"
 
+#import <AsyncImageView/AsyncImageView.h>
+
 @import CoreData;

@@ -50,9 +50,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = TableViewCellTextFont;
+        
+        cell.detailTextLabel.font = TableViewCellDetailTextFont;
+        cell.detailTextLabel.textColor = LifesumGreen;
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -64,6 +67,7 @@
     Exercise *exercise = [self.databaseReader getObjectAtIndexPath:indexPath];
 
     cell.textLabel.text = exercise.localizedName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f kcal", [exercise.calories doubleValue]];
 }
 
 #pragma mark - Search

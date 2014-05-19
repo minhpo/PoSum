@@ -7,6 +7,7 @@
 //
 
 #import "FoodViewController.h"
+#import "FoodDetailsViewController.h"
 
 #import "FoodDatabaseReader.h"
 #import "Food.h"
@@ -49,9 +50,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = TableViewCellTextFont;
+        
+        cell.detailTextLabel.font = TableViewCellDetailTextFont;
+        cell.detailTextLabel.textColor = LifesumGreen;
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -61,13 +65,25 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Food *food = [self.databaseReader getObjectAtIndexPath:indexPath];
+    
     cell.textLabel.text = food.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f kcal", [food.calories doubleValue]];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self.databaseReader getSectionTitleAtSection:section];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Food *food = [self.databaseReader getObjectAtIndexPath:indexPath];
+    FoodDetailsViewController *detailsViewController = [[FoodDetailsViewController alloc] initWithNibName:@"FoodDetailsView" bundle:nil];
+    detailsViewController.food = food;
+    
+    [self presentViewController:detailsViewController animated:YES completion:nil];
 }
 
 #pragma mark - Search
