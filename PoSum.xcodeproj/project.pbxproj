@@ -48,6 +48,7 @@
 		4D8A7F74192928C200C352E9 /* Exercise+LocalizedViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F73192928C200C352E9 /* Exercise+LocalizedViewModel.m */; };
 		4D8A7F7D1929C8D200C352E9 /* DatabaseImportOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F7C1929C8D200C352E9 /* DatabaseImportOperation.m */; };
 		4D8A7F85192A4FEF00C352E9 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7F84192A4FEF00C352E9 /* CircularProgressView.m */; };
+		4DEE7C2E192A69F1009DADCA /* TabBarControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE7C2D192A69F1009DADCA /* TabBarControllerViewController.m */; };
 		C1F21B6846984CA1B4F7BD40 /* libPods-PoSumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		4D8A7F7F1929CAE000C352E9 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Shared.h; path = Misc/Shared.h; sourceTree = "<group>"; };
 		4D8A7F83192A4FEF00C352E9 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularProgressView.h; path = UI/Import/CircularProgressView.h; sourceTree = "<group>"; };
 		4D8A7F84192A4FEF00C352E9 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularProgressView.m; path = UI/Import/CircularProgressView.m; sourceTree = "<group>"; };
+		4DEE7C2C192A69F1009DADCA /* TabBarControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarControllerViewController.h; path = UI/TabBar/TabBarControllerViewController.h; sourceTree = "<group>"; };
+		4DEE7C2D192A69F1009DADCA /* TabBarControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarControllerViewController.m; path = UI/TabBar/TabBarControllerViewController.m; sourceTree = "<group>"; };
 		985CB1AD4F50457D9969C946 /* libPods-PoSumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoSumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -311,6 +314,7 @@
 		4D2FDD271927C30000117DB8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4DEE7C2B192A69C8009DADCA /* TabBar */,
 				4D8A7F47192894B100C352E9 /* Application */,
 				4D8A7F48192894B700C352E9 /* Categories */,
 				4D8A7F4A192894C300C352E9 /* Exercise */,
@@ -376,6 +380,15 @@
 				4D8A7F7F1929CAE000C352E9 /* Shared.h */,
 			);
 			name = Misc;
+			sourceTree = "<group>";
+		};
+		4DEE7C2B192A69C8009DADCA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE7C2C192A69F1009DADCA /* TabBarControllerViewController.h */,
+				4DEE7C2D192A69F1009DADCA /* TabBarControllerViewController.m */,
+			);
+			name = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,6 +545,7 @@
 				4D8A7F461928949A00C352E9 /* DatabaseContentInitializer.m in Sources */,
 				4D8A7F621928959500C352E9 /* ImportProgressViewController.m in Sources */,
 				4D2FDCC31927741D00117DB8 /* main.m in Sources */,
+				4DEE7C2E192A69F1009DADCA /* TabBarControllerViewController.m in Sources */,
 				4D8A7F5D1928958D00C352E9 /* ExerciseViewController.m in Sources */,
 				4D2FDD3E192881DA00117DB8 /* FoodCategoryDatabaseReader.m in Sources */,
 				4D8A7F85192A4FEF00C352E9 /* CircularProgressView.m in Sources */,
