@@ -8,13 +8,17 @@
 
 #import "ImportProgressViewController.h"
 
+#import "CircularProgressView.h"
+
 #import "DatabaseContentInitializer.h"
 
 #import "Shared.h"
 
 @interface ImportProgressViewController ()
 
-@property IBOutlet UIProgressView *progressIndicator;
+@property IBOutlet UILabel *progressLabel;
+@property IBOutlet CircularProgressView *innerCircularView;
+@property IBOutlet CircularProgressView *circularProgressView;
 
 @property DatabaseContentInitializer *databaseContentInitializer;
 
@@ -29,6 +33,17 @@
         self.databaseContentInitializer = [DatabaseContentInitializer new];
     
     return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    
+    self.progressLabel.text = [NSString stringWithFormat:@"0%%"];
+    
+    [self.innerCircularView setValue:100];
+    [self.innerCircularView setDrawColor:[UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:242.0/255.0 alpha:1.0]];
+    
+    [self.circularProgressView setLineWidth:20];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,11 +69,17 @@
 }
 
 - (void)startImport {
-    self.progressIndicator.progress = 0;
+    [self.circularProgressView setValue:0];
+    self.progressLabel.text = [NSString stringWithFormat:@"0%%"];
     
     [self.databaseContentInitializer startImportingDataWithProgressCallback:^(float progress) {
-        self.progressIndicator.progress = progress;
+        float progressInPercentage = progress*100;
+        [self.circularProgressView setValue:progressInPercentage];
+        
+        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", progressInPercentage];
     }];
+    
+    
 }
 
 @end
