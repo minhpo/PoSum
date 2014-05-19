@@ -37,6 +37,12 @@
     [self.databaseReader fetchResultForSearchTerm:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.databaseReader numberOfSections];
 }
@@ -67,7 +73,7 @@
     Food *food = [self.databaseReader getObjectAtIndexPath:indexPath];
     
     cell.textLabel.text = food.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f kcal", [food.calories doubleValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.f kcal", [food.calories doubleValue]];
 }
 
 #pragma mark - UITableViewDelegate

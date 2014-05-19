@@ -43,7 +43,7 @@
     
     self.titleLabel.text = self.food.title;
     
-    self.nutritionValueLabel.text = [NSString stringWithFormat:@"Nutrition information: %.f g/%@", [self.food.calories doubleValue], self.food.pcstext];
+    self.nutritionValueLabel.text = [NSString stringWithFormat:@"Nutrition information: %.f kcal/%@", [self.food.calories doubleValue], self.food.pcstext];
     
     self.proteinValueLabel.text = [NSString stringWithFormat:@"%.f g", [self.food.protein doubleValue]];
     
@@ -62,10 +62,10 @@
     self.imageView.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kFoodCategoryImageUrlTemplate, [self.food.categoryid integerValue]]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 - (IBAction)closeButtonPressed:(id)sender {

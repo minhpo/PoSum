@@ -55,7 +55,12 @@
         cell.textLabel.font = TableViewCellTextFont;
         
         cell.detailTextLabel.font = TableViewCellDetailTextFont;
-        cell.detailTextLabel.textColor = LifesumGreen;
+        cell.detailTextLabel.textColor = LifesumBlue;
+        
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    else {
+        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.imageView];
     }
     
     [self configureCell:cell atIndexPath:indexPath];

@@ -18,6 +18,7 @@
 
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property NSFetchedResultsController *fetchedResultsController;
+@property NSSet *supportedLocale;
 
 @end
 
@@ -27,6 +28,7 @@
     self = [super init];
     if (self) {
         [self setupManagedObjectContext];
+        [self setupSupportedLocale];
     }
     
     return self;
@@ -37,6 +39,23 @@
     self.managedObjectContext.persistentStoreCoordinator = [DatabaseContext sharedInstance].persistentStoreCoordinator;
 }
 
+- (void)setupSupportedLocale {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Food class])
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = entity;
+    request.resultType = NSDictionaryResultType;
+    request.returnsDistinctResults = YES;
+    request.propertiesToFetch = @[@"language"];
+    
+    // Execute the fetch.
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    self.supportedLocale = [NSSet setWithArray:[result valueForKeyPath:@"language"]];
+}
+
 - (void)fetchResultForSearchTerm:(NSString*)searchTerm {
     NSFetchRequest *fetchRequest = [NSFetchRequest new];
     
@@ -44,7 +63,7 @@
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSString *locale = [[NSLocale currentLocale] localeIdentifier];
+    NSString *locale = [self getLocale];
     
     NSPredicate *predicate = !searchTerm || [searchTerm isEqualToString:[NSString string]]
         ? [NSPredicate predicateWithFormat:@"language == %@", locale]
@@ -71,6 +90,14 @@
     
     NSError *error;
     [self.fetchedResultsController performFetch:&error];
+}
+
+- (NSString*)getLocale {
+    NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
+    
+    return [self.supportedLocale containsObject:currentLocale]
+        ? currentLocale
+        : @"en_US";
 }
 
 - (NSString*)getSectionTitleAtSection:(NSInteger)section {

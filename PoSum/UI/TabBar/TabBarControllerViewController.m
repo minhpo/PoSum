@@ -29,7 +29,9 @@
 }
 
 - (void)setTabBarIcons {
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TabBarTextFont, NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSFontAttributeName:TabBarTextFont, NSForegroundColorAttributeName:LifesumGreen } forState:UIControlStateSelected];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSFontAttributeName:TabBarTextFont } forState:UIControlStateNormal];
     
     UITabBarItem *categoryTabBarItem = self.tabBar.items[0];
     categoryTabBarItem.image = [[UIImage imageNamed:@"TabCategory-Passive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
