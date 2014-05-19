@@ -13,8 +13,6 @@
 #import "FoodCategory.h"
 #import "FoodCategory+LocalizedViewModel.h"
 
-#import "Shared.h"
-
 @interface CategoryViewController ()
 
 @property IBOutlet UITableView *tableView;
@@ -84,6 +82,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = TableViewCellTextFont;
     }
     
     [self configureCell:cell atIndexPath:indexPath];

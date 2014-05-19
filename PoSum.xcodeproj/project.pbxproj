@@ -314,12 +314,12 @@
 		4D2FDD271927C30000117DB8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4DEE7C2B192A69C8009DADCA /* TabBar */,
 				4D8A7F47192894B100C352E9 /* Application */,
 				4D8A7F48192894B700C352E9 /* Categories */,
 				4D8A7F4A192894C300C352E9 /* Exercise */,
 				4D8A7F49192894C000C352E9 /* Food */,
 				4D8A7F4C192894F600C352E9 /* Import */,
+				4DEE7C2B192A69C8009DADCA /* TabBar */,
 			);
 			name = UI;
 			sourceTree = "<group>";

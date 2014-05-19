@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Shared.h"
-
 @interface DatabaseContentInitializer : NSObject
 
 - (void)startImportingDataWithProgressCallback:(ProgressCallback)progressCallback;

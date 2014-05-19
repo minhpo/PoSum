@@ -29,6 +29,8 @@
 }
 
 - (void)setTabBarIcons {
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TabBarTextFont, NSFontAttributeName, nil] forState:UIControlStateNormal];
+    
     UITabBarItem *categoryTabBarItem = self.tabBar.items[0];
     categoryTabBarItem.image = [[UIImage imageNamed:@"TabCategory-Passive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     categoryTabBarItem.selectedImage = [[UIImage imageNamed:@"TabCategory"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -41,16 +43,5 @@
     exerciseTabBarItem.image = [[UIImage imageNamed:@"TabExercise-Passive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     exerciseTabBarItem.selectedImage = [[UIImage imageNamed:@"TabExercise"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

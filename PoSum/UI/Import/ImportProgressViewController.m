@@ -12,8 +12,6 @@
 
 #import "DatabaseContentInitializer.h"
 
-#import "Shared.h"
-
 @interface ImportProgressViewController ()
 
 @property IBOutlet UILabel *progressLabel;

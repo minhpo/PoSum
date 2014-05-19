@@ -52,6 +52,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = TableViewCellTextFont;
     }
     
     [self configureCell:cell atIndexPath:indexPath];

@@ -9,8 +9,6 @@
 #import "DatabaseImportOperation.h"
 #import "DatabaseContext.h"
 
-#import "Shared.h"
-
 @interface DatabaseImportOperation ()
 
 @property NSString *fileName;
